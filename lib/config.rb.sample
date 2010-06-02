@@ -1,0 +1,6 @@
+module DFP
+  module Config
+    GOOGLE_EMAIL = ''
+    GOOGLE_PASSWORD = ''
+  end
+end
