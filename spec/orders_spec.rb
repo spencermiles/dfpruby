@@ -18,6 +18,14 @@ describe "A DFP Order" do
     @order_id = order.id.to_i
   end
   
+  it 'can create an order via the Order model' do
+    order = DFP::Order.new(:name => "Test #{rand 99999999999}", :advertiser_id => ADVERTISER_ID, :trafficker_id => TRAFFICKER_ID)
+    order.save
+
+    order.class.should == DFP::Order
+    order.id.to_i.should >= 1
+  end
+  
   it 'can get an order' do
     order = DFP::OrderService.get_order(@order_id)
     order.class.should == DFP::Order

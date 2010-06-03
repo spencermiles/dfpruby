@@ -1,4 +1,5 @@
 module DFP
+  require 'savon'
   require 'lib/config'
   require 'lib/models'
   require 'lib/services'

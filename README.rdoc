@@ -1,0 +1,26 @@
+= DFPRuby
+
+==== Ruby library for Google's DFP (DoubleClick for Publishers) SOAP API
+
+This is currently very alpha, and should only be used to get started, not for production!  The eventual goal is to have a full library for accessing DFP, but it's a work in progress.
+
+The library consists of Services to talk to each SOAP endpoint, as well as object mappers.
+
+= Example Usage
+
+  order = DFP::Order.new(:name => 'My Order', :advertiser_id => 1234, :trafficker_id => 4567)
+  order.save
+  
+To lookup an Order, you'd do:
+
+  order = DFP::Order.find(1234)
+  
+or
+
+  orders = DFP::Order.find_by_statement("WHERE id > 1 LIMIT 100")
+  
+You can also use the lower level services directly:
+
+  order = DFP::OrderService.create_order({:name => "Order 123", :advertiserId => 123, :traffickerId => 456})
+  
+For more examples, check the specs.

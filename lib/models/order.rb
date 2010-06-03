@@ -15,18 +15,5 @@ class DFP::Order < DFP::Model
   soap_attr :total_impressions_delivered
   soap_attr :trafficker_id
   soap_attr :unlimited_end_date_time
-  
-  def save
-    DFP::OrderService.update_order(self.instance_variable_get('@attributes').to_hash)
-  end
-  
-  class << self
-    def find(id)
-      DFP::OrderService.get_order(id)
-    end
-    
-    def find_by_statement(statement)
-      DFP::OrderService.get_orders_by_statement(statement)
-    end
-  end
+
 end

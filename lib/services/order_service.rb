@@ -1,5 +1,5 @@
 class DFP::OrderService < DFP::Service
-  WSDL_ENDPOINT = "https://sandbox.google.com/apis/ads/publisher/v201004/OrderService?wsdl"
+  @client = Savon::Client.new("https://sandbox.google.com/apis/ads/publisher/v201004/OrderService?wsdl")
   
   soap_method(:get_order, :response => DFP::Order) { |id| {:orderId => id} }
   soap_method(:get_orders_by_statement, :response => DFP::Order) { |query| {:filterStatement => {:query => query}} }
